@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gold: #C2A278;
+  --color-gold-hover: #D8B786;
+  --color-gold-dim: rgba(194, 162, 120, 0.15);
+  
+  --color-bg-dark: #12100E;
+  --color-bg-panel: #1A1714;
+  --color-bg-panel-hover: #221F1B;
+  --color-border-subtle: rgba(194, 162, 120, 0.1);
+  --color-border-glow: rgba(194, 162, 120, 0.3);
+
+  --font-sans: var(--font-dm-sans);
+  --font-serif: var(--font-playfair);
+}
+
+@layer base {
+  :root {
+    --background: #12100E;
+    --foreground: #ffffff;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-sans), sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #12100E; 
+  border-left: 1px solid rgba(194, 162, 120, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C2A278; 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #D8B786; 
+}
+
+::selection {
+  background: rgba(194, 162, 120, 0.2);
+  color: #C2A278;
+}
+
+/* 3D Perspective Utils */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+}
+
+/* Auto rotation animation for 3D view */
+@keyframes autoRotate {
+  from {
+    transform: rotateX(20deg) rotateY(0deg);
+  }
+  to {
+    transform: rotateX(20deg) rotateY(360deg);
+  }
+}
+
+.animate-auto-rotate {
+  animation: autoRotate 20s linear infinite;
+}
+
+/* Hide scrollbar on modal/details but allow scroll */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(194, 162, 120, 0.3);
+  border-radius: 4px;
+}
+
+.animate-auto-rotate:hover {
+  animation-play-state: paused;
+}
